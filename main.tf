@@ -12,6 +12,12 @@ terraform {
     }
 }
 
+variable "image_build" {
+  type        = string
+  description = "Version Number of the latest build"
+}
+
+
 resource "azurerm_resource_group" "tf_test" {
   name = "tfmainrg"
   location = "Australia East"
@@ -28,7 +34,7 @@ resource "azurerm_container_group" "tfcg_test" {
 
   container {
       name            = "weatherapi"
-      image           = "binarythistle/weatherapi"
+      image           = "binarythistle/weatherapi:${var.image_build}"
         cpu             = "1"
         memory          = "1"
 
