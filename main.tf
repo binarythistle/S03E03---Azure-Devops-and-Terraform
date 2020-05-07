@@ -25,7 +25,7 @@ resource "azurerm_container_group" "tfcg_test" {
 
   ip_address_type     = "public"
   dns_name_label      = "binarythistlewa"
-  os_type             =  "Linux"
+  os_type             = "Linux"
 
   container {
       name            = "weatherapi"
